@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import com.example.tonghees.model.Task;
 import com.example.tonghees.model.TaskDao;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class TaskRepository {
@@ -25,9 +26,9 @@ public class TaskRepository {
         return mAllTasks;
     }
 
-    public void insert(Task task, Task location){
+    public void insert(Task task){
 
-        new insertAsyncTask(mTaskDao).execute(task,location);
+        new insertAsyncTask(mTaskDao).execute(task);
     }
 
     private static class insertAsyncTask extends AsyncTask<Task, Void, Void> {
@@ -35,12 +36,13 @@ public class TaskRepository {
         private TaskDao mAsyncTaskDao;
 
         insertAsyncTask(TaskDao dao) {
+
             mAsyncTaskDao = dao;
         }
 
         @Override
         protected Void doInBackground(final Task... params) {
-            mAsyncTaskDao.insert(params[0],params[0]);
+            mAsyncTaskDao.insert(Arrays.asList(params[0]));
             return null;
         }
     }

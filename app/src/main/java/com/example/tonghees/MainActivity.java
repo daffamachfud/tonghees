@@ -1,12 +1,14 @@
 package com.example.tonghees;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.example.tonghees.model.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
@@ -18,6 +20,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,12 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_TASK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Task task = new Task(data.getStringExtra(NewTaskActivity.EXTRA_REPLY),(data.getStringExtra(NewTaskActivity.EXTRA_LOCATION)));
-            mTaskViewModel.insert(task,task);
+            mTaskViewModel.insert(task);
         } else {
             Toast.makeText(
                     getApplicationContext(),

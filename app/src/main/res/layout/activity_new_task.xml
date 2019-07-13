@@ -3,36 +3,62 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        />
     <EditText
         android:id="@+id/edit_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_task"
+        android:hint="Tuliskan task anda disini"
         android:inputType="textAutoComplete"
-        android:padding="@dimen/small_padding"
+        android:padding="@dimen/big_padding"
+        android:paddingLeft="@dimen/big_padding"
+        android:paddingRight="@dimen/big_padding"
         android:layout_marginBottom="@dimen/big_padding"
-        android:layout_marginTop="@dimen/big_padding"
+
         android:textSize="18sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Description"/>
 
     <EditText
         android:id="@+id/edit_loc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_task"
+        android:hint="Tuliskan deskripsi disini"
         android:inputType="textAutoComplete"
-        android:padding="@dimen/small_padding"
+        android:padding="@dimen/big_padding"
+        android:paddingLeft="@dimen/big_padding"
+        android:paddingRight="@dimen/big_padding"
         android:layout_marginBottom="@dimen/big_padding"
-        android:layout_marginTop="@dimen/big_padding"
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/button_save"
-        android:layout_width="match_parent"
+        android:id="@+id/btnMap"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="@string/button_save"
+        android:layout_marginBottom="@dimen/big_padding"
+        android:background="@drawable/buttonlocation"
+        android:textColor="@color/buttonLabel" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:background="@drawable/savebutton"
         android:textColor="@color/buttonLabel" />
 
 </LinearLayout>

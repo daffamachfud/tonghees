@@ -22,8 +22,9 @@ public interface TaskDao {
 
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Task task,Task location);
+    void insert(List<Task> tasks);
 
     @Query("DELETE FROM task_table")
     void deleteAll();
+
 }

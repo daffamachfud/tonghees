@@ -1,6 +1,6 @@
 package com.example.tonghees.model;
 
-import android.location.Location;
+
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

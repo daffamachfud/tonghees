@@ -12,6 +12,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.tonghees.model.Task;
 import com.example.tonghees.model.TaskDao;
 
+import java.util.List;
+
 @Database(entities = {Task.class},version = 1)
 public abstract class TaskRoomDatabase extends RoomDatabase {
     public abstract TaskDao taskDao();
@@ -68,7 +70,7 @@ public abstract class TaskRoomDatabase extends RoomDatabase {
             mDao.deleteAll();
 
             Task task = new Task("Hello","Bandung");
-            mDao.insert(task,task);
+            mDao.insert((List<Task>) task);
 
             return null;
         }

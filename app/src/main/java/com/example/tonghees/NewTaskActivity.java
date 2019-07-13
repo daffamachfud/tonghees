@@ -25,6 +25,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tonghees.map.MapsActivity;
+
 /**
  * Activity for entering a word.
  */
@@ -32,10 +34,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class NewTaskActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
-    public static final String EXTRA_LOCATION = "com.example.android.wordlistsql.REPLY";
+    public static final String EXTRA_LOCATION = "com.example.android.wordlistsql.REPLYY";
 
     private EditText mEditTaskView;
     private EditText mEditLocView;
+    private Button mPageMaps;
 
 
     @Override
@@ -45,6 +48,16 @@ public class NewTaskActivity extends AppCompatActivity {
         mEditTaskView = findViewById(R.id.edit_word);
         mEditLocView = findViewById(R.id.edit_loc);
 
+
+        Button mPageMaps = findViewById(R.id.btnMap);
+        mPageMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mapsIntent = new Intent(NewTaskActivity.this, MapsActivity.class);
+                startActivity(mapsIntent);
+            }
+        });
+
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -52,14 +65,13 @@ public class NewTaskActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(mEditTaskView.getText() )) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
-                    String word = mEditTaskView.getText().toString();
+                    String tugas = mEditTaskView.getText().toString();
                     String loc = mEditLocView.getText().toString();
 
-                    replyIntent.putExtra(EXTRA_REPLY, word);
+                    replyIntent.putExtra(EXTRA_REPLY, tugas);
                     replyIntent.putExtra(EXTRA_LOCATION, loc);
 
-                        setResult(RESULT_OK, replyIntent);
-                         setResult(RESULT_OK, replyIntent);
+                    setResult(RESULT_OK, replyIntent);
 
                 }
                 finish();
