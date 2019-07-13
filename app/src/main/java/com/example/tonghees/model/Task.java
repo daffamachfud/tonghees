@@ -1,5 +1,7 @@
 package com.example.tonghees.model;
 
+import android.location.Location;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -14,11 +16,23 @@ public class Task {
     @ColumnInfo(name = "task")
     private String mTask;
 
-    public Task(@NonNull String task){
+    @NonNull
+    @ColumnInfo(name = "location")
+    private String mLocation;
+
+    public Task(@NonNull String task,@NonNull String location)
+    {
         this.mTask = task;
+        this.mLocation = location;
     }
+
 
     public String getTask(){
         return this.mTask;
+    }
+
+    @NonNull
+    public String getLocation() {
+        return mLocation;
     }
 }

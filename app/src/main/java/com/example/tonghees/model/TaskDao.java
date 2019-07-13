@@ -1,4 +1,4 @@
-package com.example.tonghees;
+package com.example.tonghees.model;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -19,8 +19,10 @@ public interface TaskDao {
     @Query("SELECT * from task_table ORDER BY task ASC")
     LiveData<List<Task>> getAlphabetizedWords();
 
+
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Task task);
+    void insert(Task task,Task location);
 
     @Query("DELETE FROM task_table")
     void deleteAll();

@@ -17,10 +17,12 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     class TaskViewHolder extends RecyclerView.ViewHolder {
         private final TextView taskItemView;
+        private final TextView taskLocView;
 
         private TaskViewHolder(View itemView) {
             super(itemView);
             taskItemView = itemView.findViewById(R.id.textView);
+            taskLocView = itemView.findViewById(R.id.locView);
         }
     }
 
@@ -41,6 +43,8 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         if (mTasks != null) {
             Task current = mTasks.get(position);
             holder.taskItemView.setText(current.getTask());
+            holder.taskLocView.setText(current.getLocation());
+
         }
     }
 

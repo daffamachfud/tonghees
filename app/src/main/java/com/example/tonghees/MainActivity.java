@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_TASK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Task task = new Task(data.getStringExtra(NewTaskActivity.EXTRA_REPLY));
-            mTaskViewModel.insert(task);
+            Task task = new Task(data.getStringExtra(NewTaskActivity.EXTRA_REPLY),(data.getStringExtra(NewTaskActivity.EXTRA_LOCATION)));
+            mTaskViewModel.insert(task,task);
         } else {
             Toast.makeText(
                     getApplicationContext(),

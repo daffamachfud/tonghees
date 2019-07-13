@@ -10,6 +10,7 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.tonghees.model.Task;
+import com.example.tonghees.model.TaskDao;
 
 @Database(entities = {Task.class},version = 1)
 public abstract class TaskRoomDatabase extends RoomDatabase {
@@ -66,8 +67,8 @@ public abstract class TaskRoomDatabase extends RoomDatabase {
             // Not needed if you only populate on creation.
             mDao.deleteAll();
 
-            Task word = new Task("Hello");
-            mDao.insert(word);
+            Task task = new Task("Hello","Bandung");
+            mDao.insert(task,task);
 
             return null;
         }

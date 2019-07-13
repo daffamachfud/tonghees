@@ -32,29 +32,39 @@ import androidx.appcompat.app.AppCompatActivity;
 public class NewTaskActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
+    public static final String EXTRA_LOCATION = "com.example.android.wordlistsql.REPLY";
 
     private EditText mEditTaskView;
+    private EditText mEditLocView;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_task);
         mEditTaskView = findViewById(R.id.edit_word);
+        mEditLocView = findViewById(R.id.edit_loc);
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
-                if (TextUtils.isEmpty(mEditTaskView.getText())) {
+                if (TextUtils.isEmpty(mEditTaskView.getText() )) {
                     setResult(RESULT_CANCELED, replyIntent);
                 } else {
                     String word = mEditTaskView.getText().toString();
+                    String loc = mEditLocView.getText().toString();
+
                     replyIntent.putExtra(EXTRA_REPLY, word);
-                    setResult(RESULT_OK, replyIntent);
+                    replyIntent.putExtra(EXTRA_LOCATION, loc);
+
+                        setResult(RESULT_OK, replyIntent);
+                         setResult(RESULT_OK, replyIntent);
+
                 }
                 finish();
             }
         });
     }
-}
+    }
 

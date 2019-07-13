@@ -24,8 +24,8 @@ public class TaskViewModel extends AndroidViewModel {
         return mAllTasks;
     }
 
-    public void insert(Task task){
-        mRepository.insert(task);
+    public void insert(Task task,Task location){
+        mRepository.insert(task,location);
     }
 
 
