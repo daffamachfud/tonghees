@@ -1,4 +1,4 @@
-package com.example.tonghees;
+package com.example.tonghees.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

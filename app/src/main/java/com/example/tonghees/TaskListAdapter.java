@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tonghees.model.Task;
+
 import java.util.Collections;
 import java.util.List;
 

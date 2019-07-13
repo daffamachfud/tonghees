@@ -9,6 +9,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.tonghees.model.Task;
+
 @Database(entities = {Task.class},version = 1)
 public abstract class TaskRoomDatabase extends RoomDatabase {
     public abstract TaskDao taskDao();
